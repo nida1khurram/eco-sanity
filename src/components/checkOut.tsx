@@ -42,6 +42,9 @@ export default function CheckoutPage() {
 
     }).catch(error => console.log(error));
   }
+ // shipping charges add
+ const shippingCharges = 10;
+ const totalAmount = total + shippingCharges
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -92,15 +95,20 @@ export default function CheckoutPage() {
                   <div>
                     <h3 className="font-bold">{item.name}</h3>
                     <p>Quantity: {item.quantity}</p>
+                    <p>Shipping Charges included </p>
                   </div>
                 </div>
                 <p>${(item.price * item.quantity).toFixed(2)}</p>
+                
               </div>
+              
             ))}
             <div className="border-t pt-4 mt-4">
               <div className="flex justify-between items-center">
                 <h3 className="font-bold">Total</h3>
-                <p className="font-bold">${total.toFixed(2)}</p>
+                {/* <p className="font-bold">${total.toFixed(2)}</p> */}
+                <p className="font-bold">${(totalAmount).toFixed(2)}</p>
+              
               </div>
             </div>
           </div>

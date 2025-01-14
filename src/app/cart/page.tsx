@@ -401,6 +401,9 @@ export default function CartPage() {
   }
 
   const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0)
+  // shipping charges add
+  const shippingCharges = 10;
+  const totalAmount = total + shippingCharges
 
   return (
     <Container>
@@ -493,12 +496,16 @@ export default function CartPage() {
       <span>${total.toFixed(2)}</span>
     </div>
     <div className="flex justify-between">
-      <span>Shipping Charge</span>
-      <span>$10.00</span>
+      <span>Shipping Charges</span>
+      <span>${shippingCharges}</span>
     </div>
     <div className="flex justify-between font-semibold pt-2 border-t">
       <span>Total Amount</span>
-      <span>${(total + 10).toFixed(2)}</span>
+
+      {/* add variable */}
+      {/* <span>${(total + 10).toFixed(2)}</span> */}
+      <span>${(totalAmount).toFixed(2)}</span>
+      
     </div>
   </div>
   <button className="w-full mt-4 px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors flex items-center justify-center gap-2">
